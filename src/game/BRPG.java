@@ -47,7 +47,8 @@ public class BRPG implements Rules, Room{
                 Collections.shuffle(maJiangs); break;
         }
 
-        // 发牌
+        // 发牌1
+        /*
         for (int i = 0; i< initMaJiangNum; i++) {
             for (int j = 1; j <= playerNum; j++) {
                 GamePlayer gamePlayer = players.get(j-1);
@@ -55,7 +56,17 @@ public class BRPG implements Rules, Room{
             }
         }
 
-        // maJiangs.remove(0);
+        */
+
+        // 发牌2
+        for (int i = 0; i< initMaJiangNum; i++) {
+            for (int j = 1; j <= playerNum; j++) {
+                GamePlayer gamePlayer = players.get(j-1);
+                gamePlayer.in(maJiangs.get(0));
+                maJiangs.remove(0);
+            }
+        }
+
 
         for (GamePlayer gamePlayer : players) {
             gamePlayer.sortAndInit();
