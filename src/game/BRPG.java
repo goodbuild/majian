@@ -15,20 +15,23 @@ import java.util.List;
  * @Version 1.0.0
  */
 public class BRPG implements Rules, Room{
-    private List<MaJiang> MaJiangs = new ArrayList<MaJiang>();
+    private List<MaJiang> maJiangs = new ArrayList<MaJiang>();
     private List<GamePlayer> players = new ArrayList<GamePlayer>();
     private String roomNum;
     private final int playerNum = 4; //
     private final int initMaJiangum= 12; //
     private RoomStatus roomStatus = RoomStatus.WaitPlayer;
 
+    private GamePlayer currPlayer;
+    private GamePlayer PrevPlayer;
+
     public BRPG() {
         initMaJiang();
     }
 
     private void initMaJiang() {
-        MaJiangs.addAll(Utils.initFeiZiMaJiang());
-        MaJiangs.addAll(Utils.initZiMaJiang());
+        maJiangs.addAll(Utils.initFeiZiMaJiang());
+        maJiangs.addAll(Utils.initZiMaJiang());
     }
 
 
@@ -41,21 +44,21 @@ public class BRPG implements Rules, Room{
             case WaitFaPai:
             case End:
             default:
-                Collections.shuffle(MaJiangs); break;
+                Collections.shuffle(maJiangs); break;
         }
 
         // 发牌
         for (int i= 0; i< initMaJiangum; i++) {
             for (int j = 1; j <= playerNum; j++) {
                 GamePlayer gamePlayer = players.get(j-1);
-                gamePlayer.in(MaJiangs.get(i * j));
+                gamePlayer.in(maJiangs.get(i * j));
             }
         }
 
-        // MaJiangs.remove(0);
+        // maJiangs.remove(0);
 
         for (GamePlayer gamePlayer : players) {
-            gamePlayer.sort();
+//            gamePlayer.sort();
         }
 
         this.roomStatus = RoomStatus.Palying;
@@ -96,6 +99,7 @@ public class BRPG implements Rules, Room{
 
         if (this.players.size() == playerNum) {
             this.roomStatus = RoomStatus.WaitFaPai;
+            this.currPlayer = this.players.get(0);  // 默认第一个做庄
         }
     }
 

@@ -48,4 +48,10 @@ public class MaJiang {
         MaJiangCard maJiangCard = MaJiangCard.valueOfName(strs[0]);
         return String.format("%s%s", this.card.replace(strs[0], ""), maJiangCard.getcName());
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        MaJiang _obj = (MaJiang)obj;
+        return this.card.equals(_obj.card);
+    }
 }
