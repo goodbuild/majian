@@ -19,7 +19,7 @@ public class BRPG implements Rules, Room{
     private List<GamePlayer> players = new ArrayList<GamePlayer>();
     private String roomNum;
     private final int playerNum = 4; //
-    private final int initMaJiangum= 12; //
+    private final int initMaJiangNum = 12; //
     private RoomStatus roomStatus = RoomStatus.WaitPlayer;
 
     private GamePlayer currPlayer;
@@ -48,7 +48,7 @@ public class BRPG implements Rules, Room{
         }
 
         // 发牌
-        for (int i= 0; i< initMaJiangum; i++) {
+        for (int i = 0; i< initMaJiangNum; i++) {
             for (int j = 1; j <= playerNum; j++) {
                 GamePlayer gamePlayer = players.get(j-1);
                 gamePlayer.in(maJiangs.get(i * j));
@@ -58,7 +58,7 @@ public class BRPG implements Rules, Room{
         // maJiangs.remove(0);
 
         for (GamePlayer gamePlayer : players) {
-//            gamePlayer.sort();
+            gamePlayer.sortAndInit();
         }
 
         this.roomStatus = RoomStatus.Palying;
