@@ -191,12 +191,18 @@ public abstract class Play {
 
     public void out(GamePlayer currGamePalyer, MaJiang maJiang) throws Exception {
         GamePlayer gamePlayer = room.getCurrPlayer();
+        // TODO 删除日志
         System.out.println(gamePlayer.getUserId() + " : " + maJiang.toString());
         if (!currGamePalyer.equals(gamePlayer)) {
             throw new NotYetException();
         }
         gamePlayer.out(maJiang);
+
+        check(maJiang);
+
         room.nextGamePlayer();
+
+        // TODO 删除日志
         gamePlayer.toString();
     }
 
@@ -210,7 +216,11 @@ public abstract class Play {
         for (GamePlayer gamePlayer: room.getPlayers()) {
             List<PlayRuleEnum> playRuleEnum = new ArrayList<>();
 
-            int number = gamePlayer.getMaJiangMap().get(maJiang);
+            Integer number = gamePlayer.getMaJiangMap().get(maJiang);
+
+            if (number == null) {
+                continue;
+            }
             //检查 碰
             if (number > Config.PENG_NUM) {
                 playRuleEnum.add(PlayRuleEnum.peng);

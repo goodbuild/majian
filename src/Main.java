@@ -1,3 +1,4 @@
+import config.Config;
 import game.GamePlayer;
 import game.MaJiang;
 import game.Play;
@@ -20,29 +21,29 @@ public class Main {
         GamePlayer g3 = new GamePlayer("C用户", 100);
         GamePlayer g4 = new GamePlayer("D用户", 100);
 
-        Play brpg = PlayFactory.createBasePlay(8);
+        Play play = PlayFactory.createBasePlay(Config.MAX_GAMG_NUM_8);
 
-        brpg.addGamePlayer(g1);
-        brpg.addGamePlayer(g2);
-        brpg.addGamePlayer(g3);
-        brpg.addGamePlayer(g4);
+        play.addGamePlayer(g1);
+        play.addGamePlayer(g2);
+        play.addGamePlayer(g3);
+        play.addGamePlayer(g4);
 
-        brpg.faPai();
+        play.faPai();
 
-        brpg.toString();
+        play.toString();
 
         Scanner scanner = new Scanner(System.in);
 
         String one = scanner.next();
-        brpg.out(brpg.getCurrPlayer() , new MaJiang(one));
+        play.out(play.getCurrPlayer() , new MaJiang(one));
 
         while (true) {
             System.out.println();
             System.out.println("----------------------------------");
-            brpg.in();
-            brpg.getCurrPlayer().toString();
+            play.in();
+            play.getCurrPlayer().toString();
             String out = scanner.next();
-            brpg.out(brpg.getCurrPlayer() , new MaJiang(out));
+            play.out(play.getCurrPlayer() , new MaJiang(out));
         }
 
     }

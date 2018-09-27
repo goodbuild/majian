@@ -1,5 +1,7 @@
 package game;
 
+import config.Config;
+
 import java.util.*;
 
 /**
@@ -61,11 +63,36 @@ public class GamePlayer {
     }
 
     private void makeWin() {
+        winList.clear();
         if (maJiangs.size() < 2) {
             return;
         }
 
-        // AABB
+        // int num = maJiangs.size() / 3;
+
+        // 先排除掉对或者3个的
+        List<MaJiang> pengs = new ArrayList<>();
+        List<MaJiang> gangs = new ArrayList<>();
+        List<MaJiang> ones = new ArrayList<>();
+
+        for(MaJiang maJiang : maJiangMap.keySet()) {
+            int num = maJiangMap.get(maJiang);
+            if (num == Config.PENG_NUM) {
+                pengs.add(maJiang);
+            } else if (num == Config.GANG_NUM) {
+                gangs.add(maJiang);
+            } else {
+                ones.add(maJiang);
+            }
+        }
+
+        // 不能胡
+        if (pengs.size() > 2) {
+            return;
+        }
+
+        //一个的排序，如果有两个
+        // x*AAA + y*ABC + z * DD
         for (int i = 1; i < maJiangs.size(); i++) {
             MaJiang maJiang = maJiangs.get(i);
         }
@@ -80,6 +107,7 @@ public class GamePlayer {
      * 标注哪些麻将可以碰杠
      */
     private void makePengAndGang() {
+        maJiangMap.clear();
         for (MaJiang maJiang : maJiangs) {
             Integer num = maJiangMap.get(maJiang);
             if (num == null) {
