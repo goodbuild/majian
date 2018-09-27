@@ -22,7 +22,7 @@ public class GamePlayer {
     private List<MaJiang> chiList = new ArrayList<>();
     private Map<MaJiang, Integer> maJiangOutMap = new HashMap<>();
 
-    public GamePlayer(String userId,int scores) {
+    public GamePlayer(String userId, int scores) {
         this.scores = scores;
         this.userId = userId;
     }
@@ -42,7 +42,7 @@ public class GamePlayer {
     public void sortAndInit() {
         maJiangs.sort(new Comparator<MaJiang>() {
             public int compare(MaJiang n1, MaJiang n2) {
-                return n2.getCard().compareTo(n1.getCard());
+                return n2.getSortId() - n1.getSortId();
             }
         });
 
@@ -57,7 +57,7 @@ public class GamePlayer {
             return;
         }
 
-        for (int i = 1; i < maJiangs.size()- 2; i++) {
+        for (int i = 1; i < maJiangs.size() - 2; i++) {
             MaJiang maJiang = maJiangs.get(i);
         }
     }
@@ -75,7 +75,7 @@ public class GamePlayer {
         List<MaJiang> gangs = new ArrayList<>();
         List<MaJiang> ones = new ArrayList<>();
 
-        for(MaJiang maJiang : maJiangMap.keySet()) {
+        for (MaJiang maJiang : maJiangMap.keySet()) {
             int num = maJiangMap.get(maJiang);
             if (num == Config.PENG_NUM) {
                 pengs.add(maJiang);
@@ -91,9 +91,47 @@ public class GamePlayer {
             return;
         }
 
+        // 去掉字
+        List<MaJiang> noWordList = new ArrayList<>();
+
+        for (MaJiang maJiang : maJiangs) {
+            switch (maJiang.getMaJiangCardEnum()) {
+                case WangZi:
+                case TongZi:
+                case SuoZi:
+                    noWordList.add(maJiang);
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        // 去掉单一的 ABC
+        
+        for (int i = 1; i < noWordList.size(); i = i + 2) {
+            MaJiang maJiang = maJiangs.get(i);
+        }
+
+        //去掉单纯碰
+        MaJiang danDiao = null;  // 单调牌
+        for (MaJiang maJiang : pengs) {
+            switch (maJiang.getMaJiangCardEnum()) {
+                case WangZi:
+                case TongZi:
+                case SuoZi:
+                    try {
+                        int index = noWordList.indexOf(maJiang) + 1; // 碰是两个
+                    } catch (Exception e) {
+                        if (danDiao != null) { // 两个单调是不合理的
+                            return;
+                        }
+                    }
+            }
+
+        }
         //一个的排序，如果有两个
         // x*AAA + y*ABC + z * DD
-        for (int i = 1; i < maJiangs.size(); i++) {
+        for (int i = 1; i < noWordList.size(); i++) {
             MaJiang maJiang = maJiangs.get(i);
         }
     }
@@ -101,6 +139,40 @@ public class GamePlayer {
     private boolean isTing() {
 
         return false;
+    }
+
+    private static void _checkABC(List<MaJiang> list) {
+        List<List<MaJiang>> lists = new ArrayList<>();
+        List<MaJiang> noWords = new ArrayList<>();
+        for (int i = 1; i < list.size() - 1; i++) {
+            MaJiang prev = list.get(i-0);
+            MaJiang curr = list.get(i + 1);
+
+            switch (prev.getMaJiangCardEnum()) {
+                case SuoZi:
+                case WangZi:
+                case TongZi:
+                    int range = prev.getSortId() - curr.getSortId();
+
+                    if (range == 1) {
+                        noWords.add(prev);
+                    } else if (noWords.size() > 0 ){
+                        lists.add(noWords);
+                        noWords = new ArrayList();
+                    }
+                    break;
+                default:
+                    noWords = new ArrayList();
+            }
+        }
+
+        //TODO 删除日志
+        System.out.println(list);
+        for (List<MaJiang> l : lists) {
+            System.out.print(l.size() + "   : ");
+            System.out.println(l.toString());
+        }
+
     }
 
     /**

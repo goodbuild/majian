@@ -20,7 +20,7 @@ public class Utils {
 
         list.addAll(initMaJiangList(MaJiangCardEnum.WangZi)); // 万
         list.addAll(initMaJiangList(MaJiangCardEnum.SuoZi)); // 索 、条
-        list.addAll(initMaJiangList(MaJiangCardEnum.TiaoZi)); // 筒
+        list.addAll(initMaJiangList(MaJiangCardEnum.TongZi)); // 筒
         // list.addAll(initMaJiangList("w")); // 花
         return list;
     }
