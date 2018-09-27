@@ -1,23 +1,27 @@
 package game;
 
+import exception.CanNotChiException;
+import exception.CanNotWinException;
+import exception.NotExistentException;
+import game.GamePlayer;
+import game.MaJiang;
+
 /**
- * @Title: 玩法接口
+ * @Title: 规则接口
  * @ProjectName MaJiang
  * @Description:
  * @Author xuelong
  * @Date 2018/9/25下午1:14
  * @Version 1.0.0
  */
-interface Rules {
-    public void faPai() throws Exception;
+public interface Rules {
+    public void peng(GamePlayer currGamePalyer, MaJiang maJiang) throws NotExistentException;
 
-    public boolean peng();
+    public void gang(GamePlayer currGamePalyer, MaJiang maJiang) throws NotExistentException;
 
-    public boolean gang();
+    public void hu(GamePlayer currGamePalyer, MaJiang maJiang) throws CanNotWinException;
 
-    public boolean hu();
+    public void zimo(GamePlayer currGamePalyer, MaJiang maJiang) throws CanNotWinException;
 
-    public boolean zimo();
-
-    public boolean chi();
+    public void chi(GamePlayer currGamePalyer, MaJiang maJiang) throws CanNotChiException;
 }

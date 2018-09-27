@@ -1,5 +1,7 @@
 package game;
 
+import enums.MaJiangCardEnum;
+
 /**
  * @Title: MaJiang
  * @ProjectName MaJiang
@@ -10,18 +12,33 @@ package game;
  */
 public class MaJiang {
     private String card;
+    private MaJiangCardEnum maJiangCardEnum;
     private int sortId = 0;
 
-    public MaJiang(MaJiangCard maJiangCard) {
+    public MaJiang(String card) {
+        String[] strs = card.split("\\d");
+        this.maJiangCardEnum = MaJiangCardEnum.valueOfName(strs[0]);
+        this.card = card;
+        try{
+            this.sortId = Integer.parseInt(card.replaceAll(maJiangCardEnum.getName(), ""));
+        } catch (Exception e) {
+
+        }
+    }
+
+    public MaJiang(MaJiangCardEnum maJiangCard) {
+        this.maJiangCardEnum = maJiangCard;
         this.card = maJiangCard.getName();
     }
 
-    public MaJiang(MaJiangCard maJiangCard, int num) {
+    public MaJiang(MaJiangCardEnum maJiangCard, int num) {
+        this.maJiangCardEnum = maJiangCard;
         this.card = maJiangCard.getName() + num;
         this.sortId = num;
     }
 
-    public MaJiang(MaJiangCard maJiangCard, int num, int sortId) {
+    public MaJiang(MaJiangCardEnum maJiangCard, int num, int sortId) {
+        this.maJiangCardEnum = maJiangCard;
         this.card = maJiangCard.getName() + num;
         this.sortId = sortId;
     }
@@ -42,15 +59,25 @@ public class MaJiang {
         this.sortId = sortId;
     }
 
+    public MaJiangCardEnum getMaJiangCardEnum() {
+        return maJiangCardEnum;
+    }
+
     @Override
     public String toString() {
-        String[] strs = this.card.split("\\d");
-        MaJiangCard maJiangCard = MaJiangCard.valueOfName(strs[0]);
-        return String.format("%s%s", this.card.replace(strs[0], ""), maJiangCard.getcName());
+        return String.format("%s%s (%s)",
+                this.card.replace(this.maJiangCardEnum.getName(), ""),
+                this.maJiangCardEnum.getcName(),
+                this.card
+                );
     }
 
     @Override
     public boolean equals(Object obj) {
+        if (obj instanceof String) {
+            return this.card.equals(obj);
+        }
+
         MaJiang _obj = (MaJiang)obj;
         return this.card.equals(_obj.card);
     }

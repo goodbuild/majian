@@ -15,4 +15,8 @@ public class InsufficientPlayerException extends Exception {
     public InsufficientPlayerException() {
         super(errorMsg);
     }
+
+    public InsufficientPlayerException(String errorMsg ) {
+        super(errorMsg);
+    }
 }

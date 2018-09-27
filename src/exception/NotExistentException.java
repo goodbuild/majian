@@ -15,4 +15,8 @@ public class NotExistentException extends Exception {
     public NotExistentException() {
         super(errorMsg);
     }
+
+    public NotExistentException(String errorMsg ) {
+        super(errorMsg);
+    }
 }

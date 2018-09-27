@@ -1,7 +1,13 @@
 package game;
 
+import enums.RoomStatusEnum;
+import game.GamePlayer;
+import game.MaJiang;
+
+import java.util.List;
+
 /**
- * @Title: Room
+ * @Title: 房间功能接口
  * @ProjectName MaJiang
  * @Description:
  * @Author xuelong
@@ -13,5 +19,33 @@ public interface Room {
 
     public void delGamePlayer(int weizhi) throws Exception;
 
-    public void jieshang();
+    public void jieshang() throws Exception;
+
+    public void setCurrPlayer(GamePlayer currGamePlayer);
+
+    public void initCurrGamePlayer(int index) throws Exception;
+
+    public void faPai(List<MaJiang> maJiangs) throws Exception;
+
+    public void in(List<MaJiang> maJiangs, boolean isFromBegin);
+
+    public GamePlayer getCurrPlayer();
+
+    public GamePlayer getPrevPlayer();
+
+    public String getRoomNum();
+
+    public int getFixedPlayerNum();
+
+    public List<GamePlayer> getPlayers();
+
+    public RoomStatusEnum getRoomStatus();
+
+    public void setRoomStatus(RoomStatusEnum roomStatusEnum);
+
+    public int getInitMaJiangNum();
+
+    public int getMaxNumberByGame();
+
+    public GamePlayer nextGamePlayer();
 }

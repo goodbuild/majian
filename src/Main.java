@@ -1,5 +1,8 @@
-import game.BRPG;
 import game.GamePlayer;
+import game.MaJiang;
+import game.Play;
+
+import java.util.Scanner;
 
 /**
  * @Title: Main
@@ -17,7 +20,7 @@ public class Main {
         GamePlayer g3 = new GamePlayer("C用户", 100);
         GamePlayer g4 = new GamePlayer("D用户", 100);
 
-        BRPG brpg = new BRPG();
+        Play brpg = PlayFactory.createBasePlay(8);
 
         brpg.addGamePlayer(g1);
         brpg.addGamePlayer(g2);
@@ -27,6 +30,20 @@ public class Main {
         brpg.faPai();
 
         brpg.toString();
+
+        Scanner scanner = new Scanner(System.in);
+
+        String one = scanner.next();
+        brpg.out(brpg.getCurrPlayer() , new MaJiang(one));
+
+        while (true) {
+            System.out.println();
+            System.out.println("----------------------------------");
+            brpg.in();
+            brpg.getCurrPlayer().toString();
+            String out = scanner.next();
+            brpg.out(brpg.getCurrPlayer() , new MaJiang(out));
+        }
 
     }
 }
