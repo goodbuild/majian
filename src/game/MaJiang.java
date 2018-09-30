@@ -67,7 +67,7 @@ public class MaJiang {
     @Override
     public String toString() {
         return String.format("%s%s (%s)",
-                this.card.replace(this.maJiangCardEnum.getName(), ""),
+                this.getNum() == null ? "" : this.getNum(),
                 this.maJiangCardEnum.getcName(),
                 this.card
                 );

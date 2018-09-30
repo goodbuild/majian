@@ -175,15 +175,17 @@ public class Utils {
         List<MaJiang> chiList = new ArrayList<>();
 
         MaJiangCardEnum maJiangCardEnum = oneMaJiang.getMaJiangCardEnum();
-        int oneNum = oneMaJiang.getSortId();
-        int twoNum = twoMaJiang.getSortId();
-        int threeNum = threeMaJiang == null ? 0 : threeMaJiang.getSortId();
+        int oneSortId = oneMaJiang.getSortId();
+        int twoSortId = twoMaJiang.getSortId();
+        int threeSortId = threeMaJiang == null ? 0 : threeMaJiang.getSortId();
 
-        int oneRange = oneNum - twoNum;
-        int twoRane = twoNum - threeNum;
+        int oneRange = oneSortId - twoSortId;
+        int twoRane = twoSortId - threeSortId;
 
         switch (oneRange) {
             case Config.RANGE_BC:
+                int oneNum = oneMaJiang.getNum();
+                int twoNum = twoMaJiang.getNum();
                 if (oneNum != 1) { // 头不取 1
                     chiList.add(new MaJiang(maJiangCardEnum, oneNum - 1));
                 }
@@ -192,7 +194,7 @@ public class Utils {
                 }
                 break;
             case Config.RANGE_AC:
-                chiList.add(new MaJiang(maJiangCardEnum, oneNum + 1));
+                chiList.add(new MaJiang(maJiangCardEnum, oneMaJiang.getNum() + 1));
                 break;
             case Config.RANGE_PENG:
                 if (twoRane == Config.RANGE_GANG) {
@@ -233,7 +235,7 @@ public class Utils {
                 if (one.getSortId() - three.getSortId() != Config.RANGE_AC) {// 本身不是ABC,但这里有个bug 就是 23456 这种糊147 会变成 47
                     huList.addAll(_getChi(one, two, three));
                     checkout++;
-                    i++;
+                    i = i +2;
                 } else {
                     i = i + 3;
                 }

@@ -1,9 +1,14 @@
 import config.Config;
+import enums.MaJiangCardEnum;
 import game.GamePlayer;
 import game.MaJiang;
 import game.Play;
+import util.Utils;
 
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 /**
  * @Title: Main
@@ -14,7 +19,6 @@ import java.util.Scanner;
  * @Version 1.0.0
  */
 public class Main {
-
     public static void main(String[] args) throws Exception {
         GamePlayer g1 = new GamePlayer("A用户", 100);
         GamePlayer g2 = new GamePlayer("B用户", 100);
@@ -32,19 +36,33 @@ public class Main {
 
         play.toString();
 
-        Scanner scanner = new Scanner(System.in);
 
-        String one = scanner.next();
-        play.out(play.getCurrPlayer() , new MaJiang(one));
+        List<MaJiang> maJiangs = new ArrayList<>();
+        maJiangs.add(new MaJiang("w6"));
+        maJiangs.add(new MaJiang("w6"));
+        maJiangs.add(new MaJiang("w7"));
+        maJiangs.add(new MaJiang("w8"));
 
-        while (true) {
-            System.out.println();
-            System.out.println("----------------------------------");
-            play.in();
-            play.getCurrPlayer().toString();
-            String out = scanner.next();
-            play.out(play.getCurrPlayer() , new MaJiang(out));
-        }
+        maJiangs.add(new MaJiang("w6"));
+        maJiangs.add(new MaJiang("t7"));
+        maJiangs.add(new MaJiang("t7"));
+        maJiangs.add(new MaJiang("t7"));
 
+        maJiangs.add(new MaJiang("s2"));
+        maJiangs.add(new MaJiang("s3"));
+        maJiangs.add(new MaJiang("s4"));
+        maJiangs.add(new MaJiang("bf"));
+
+        maJiangs.add(new MaJiang("bf"));
+
+        maJiangs.sort(new Comparator<MaJiang>() {
+            public int compare(MaJiang n1, MaJiang n2) {
+                return n1.getSortId() - n2.getSortId();
+            }
+        });
+
+        System.out.println(Utils.findHu(maJiangs));
     }
+
+
 }
