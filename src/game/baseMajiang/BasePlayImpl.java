@@ -27,7 +27,7 @@ public class BasePlayImpl extends Play {
     @Override
     public List<MaJiang> initMaJiang() {
         List<MaJiang> list = new ArrayList<>();
-        list.addAll(Utils.initFeiZiMaJiang());
+        list.addAll(Utils.initNoWordMaJiang());
         list.addAll(Utils.initZiMaJiang());
 
         return list;

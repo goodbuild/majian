@@ -60,6 +60,10 @@ public class MaJiang {
         return maJiangCardEnum;
     }
 
+    public Integer getNum() {
+        return num;
+    }
+
     @Override
     public String toString() {
         return String.format("%s%s (%s)",

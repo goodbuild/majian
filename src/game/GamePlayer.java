@@ -1,6 +1,7 @@
 package game;
 
 import config.Config;
+import util.Utils;
 
 import java.util.*;
 
@@ -53,13 +54,7 @@ public class GamePlayer {
     }
 
     private void makeChi() {
-        if (maJiangs.size() < 2) {
-            return;
-        }
-
-        for (int i = 1; i < maJiangs.size() - 2; i++) {
-            MaJiang maJiang = maJiangs.get(i);
-        }
+        chiList = Utils.fingChi(maJiangs);
     }
 
     private void makeWin() {
@@ -107,7 +102,7 @@ public class GamePlayer {
         }
 
         // 去掉单一的 ABC
-        
+
         for (int i = 1; i < noWordList.size(); i = i + 2) {
             MaJiang maJiang = maJiangs.get(i);
         }
@@ -139,40 +134,6 @@ public class GamePlayer {
     private boolean isTing() {
 
         return false;
-    }
-
-    private static void _checkABC(List<MaJiang> list) {
-        List<List<MaJiang>> lists = new ArrayList<>();
-        List<MaJiang> noWords = new ArrayList<>();
-        for (int i = 1; i < list.size() - 1; i++) {
-            MaJiang prev = list.get(i-0);
-            MaJiang curr = list.get(i + 1);
-
-            switch (prev.getMaJiangCardEnum()) {
-                case SuoZi:
-                case WangZi:
-                case TongZi:
-                    int range = prev.getSortId() - curr.getSortId();
-
-                    if (range == 1) {
-                        noWords.add(prev);
-                    } else if (noWords.size() > 0 ){
-                        lists.add(noWords);
-                        noWords = new ArrayList();
-                    }
-                    break;
-                default:
-                    noWords = new ArrayList();
-            }
-        }
-
-        //TODO 删除日志
-        System.out.println(list);
-        for (List<MaJiang> l : lists) {
-            System.out.print(l.size() + "   : ");
-            System.out.println(l.toString());
-        }
-
     }
 
     /**

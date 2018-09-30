@@ -2,15 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a54aa9a2-e1ea-4ae2-b18c-87a2adb20f35" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/exception/IsPengException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/majian/enums/MaJiangCardEnum.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/majian/enums/MaJiangCardEnum.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/majian/game/GamePlayer$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/majian/game/GamePlayer$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/majian/game/GamePlayer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/majian/game/GamePlayer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/majian/game/MaJiang.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/majian/game/MaJiang.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/majian/util/Utils.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/majian/util/Utils.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/enums/MaJiangCardEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/enums/MaJiangCardEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/exception/CanNotWinException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/CanNotHuException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/GamePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GamePlayer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/game/MaJiang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/MaJiang.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Rules.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/baseMajiang/BasePlayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/baseMajiang/BasePlayImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/game/baseMajiang/BaseRulesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/baseMajiang/BaseRulesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Utils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -24,36 +23,36 @@
     <session id="1361036078">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="2" />
+          <entry key="project.closed" value="3" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.open.time.5" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.open.time.5" value="2" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="dummy" value="68" />
-          <entry key="java" value="9174" />
+          <entry key="dummy" value="72" />
+          <entry key="java" value="12290" />
           <entry key="md" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="9174" />
+          <entry key="JAVA" value="12290" />
           <entry key="Markdown" value="39" />
-          <entry key="PLAIN_TEXT" value="68" />
+          <entry key="PLAIN_TEXT" value="72" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="138" />
+          <entry key="java" value="149" />
           <entry key="md" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="138" />
+          <entry key="JAVA" value="149" />
           <entry key="Markdown" value="1" />
         </counts>
       </usages-collector>
@@ -66,10 +65,26 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+        <entry file="file://$PROJECT_DIR$/src/game/GamePlayer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="641">
-              <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+            <state relative-caret-position="-1195">
+              <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1065#1066#0" expanded="true" />
+                <element signature="e#1135#1136#0" expanded="true" />
+                <element signature="e#1321#1322#0" expanded="true" />
+                <element signature="e#1361#1362#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/game/Rules.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,113 +93,35 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main2.java">
+        <entry file="file://$PROJECT_DIR$/src/game/baseMajiang/BaseRulesImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="20" column="57" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="57" />
+            <state relative-caret-position="-229">
+              <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
               <folding>
-                <element signature="e#1818#1819#0" expanded="true" />
-                <element signature="e#1893#1894#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/config/Config.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="7" column="47" selection-start-line="7" selection-start-column="47" selection-end-line="7" selection-end-column="47" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/game/GamePlayer.java">
+        <entry file="file://$PROJECT_DIR$/src/util/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="109" column="8" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
+            <state relative-caret-position="510">
+              <caret line="280" column="23" selection-start-line="280" selection-start-column="16" selection-end-line="280" selection-end-column="23" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1065#1066#0" expanded="true" />
-                <element signature="e#1135#1136#0" expanded="true" />
-                <element signature="e#3947#3948#0" expanded="true" />
-                <element signature="e#3978#3979#0" expanded="true" />
-                <element signature="e#4033#4034#0" expanded="true" />
-                <element signature="e#4073#4074#0" expanded="true" />
-                <element signature="e#4125#4126#0" expanded="true" />
-                <element signature="e#4158#4159#0" expanded="true" />
-                <element signature="e#4225#4226#0" expanded="true" />
-                <element signature="e#4269#4270#0" expanded="true" />
-                <element signature="e#4324#4325#0" expanded="true" />
-                <element signature="e#4360#4361#0" expanded="true" />
-                <element signature="e#4800#4801#0" expanded="true" />
-                <element signature="e#4829#4830#0" expanded="true" />
-                <element signature="e#4870#4871#0" expanded="true" />
-                <element signature="e#4920#4921#0" expanded="true" />
-                <element signature="e#4953#4954#0" expanded="true" />
-                <element signature="e#4982#4983#0" expanded="true" />
-                <element signature="e#5023#5024#0" expanded="true" />
-                <element signature="e#5053#5054#0" expanded="true" />
-                <element signature="e#5094#5095#0" expanded="true" />
-                <element signature="e#5124#5125#0" expanded="true" />
+                <element signature="method#fiABC#0;class#Utils#0" />
+                <element signature="method#findHu#0;class#Utils#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game/MaJiang.java">
+        <entry file="file://$PROJECT_DIR$/src/exception/CanNotChiException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="154">
-              <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
-              <folding>
-                <element signature="e#1470#1471#0" expanded="true" />
-                <element signature="e#1508#1509#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/enums/MaJiangCardEnum.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
-              <folding>
-                <element signature="e#1040#1041#0" expanded="true" />
-                <element signature="e#1098#1099#0" expanded="true" />
-                <element signature="e#1130#1131#0" expanded="true" />
-                <element signature="e#1151#1152#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game/baseMajiang/BaseRoomImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1013">
-              <caret line="129" selection-start-line="129" selection-end-line="129" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#addGamePlayer#0;class#BaseRoomImpl#0" />
-                <element signature="method#delGamePlayer#0;class#BaseRoomImpl#0" />
-                <element signature="method#jieshang#0;class#BaseRoomImpl#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/game/Play.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="218" column="49" selection-start-line="218" selection-start-column="32" selection-end-line="218" selection-end-column="55" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#_scoring#0;class#Play#0" />
-              </folding>
+            <state relative-caret-position="60">
+              <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -250,8 +187,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/game/Rules.kt" />
-        <option value="$PROJECT_DIR$/src/game/Rules.java" />
         <option value="$PROJECT_DIR$/src/game/RoomStatus.java" />
         <option value="$PROJECT_DIR$/src/game/Utils.java" />
         <option value="$PROJECT_DIR$/src/game/MaJia.java" />
@@ -285,7 +220,6 @@
         <option value="$PROJECT_DIR$/src/game/PlayFactory.java" />
         <option value="$PROJECT_DIR$/src/enums/RoomStatusEnum.java" />
         <option value="$PROJECT_DIR$/src/config/config.java" />
-        <option value="$PROJECT_DIR$/src/exception/CanNotWinException.java" />
         <option value="$PROJECT_DIR$/src/exception/CanNotChiException.java" />
         <option value="$PROJECT_DIR$/src/game/Room.java" />
         <option value="$PROJECT_DIR$/src/game/baseMajiang/BaseRoomImpl.java" />
@@ -298,9 +232,12 @@
         <option value="$PROJECT_DIR$/src/game/Play.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/Main2.java" />
-        <option value="$PROJECT_DIR$/src/game/MaJiang.java" />
         <option value="$PROJECT_DIR$/src/enums/MaJiangCardEnum.java" />
+        <option value="$PROJECT_DIR$/src/game/MaJiang.java" />
         <option value="$PROJECT_DIR$/src/game/GamePlayer.java" />
+        <option value="$PROJECT_DIR$/src/exception/CanNotWinException.java" />
+        <option value="$PROJECT_DIR$/src/exception/CanNotPengException.java" />
+        <option value="$PROJECT_DIR$/src/util/Utils.java" />
       </list>
     </option>
   </component>
@@ -311,7 +248,7 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-97" />
+    <option name="x" value="-19" />
     <option name="y" value="39" />
     <option name="width" value="1440" />
     <option name="height" value="825" />
@@ -322,8 +259,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -340,13 +275,7 @@
               <item name="majian" type="b2602c69:ProjectViewProjectNode" />
               <item name="majian" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="config" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="majian" type="b2602c69:ProjectViewProjectNode" />
-              <item name="majian" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="enums" type="462c0819:PsiDirectoryNode" />
+              <item name="exception" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="majian" type="b2602c69:ProjectViewProjectNode" />
@@ -358,21 +287,22 @@
               <item name="majian" type="b2602c69:ProjectViewProjectNode" />
               <item name="majian" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="game" type="462c0819:PsiDirectoryNode" />
-              <item name="baseMajiang" type="462c0819:PsiDirectoryNode" />
+              <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
       <pane id="AndroidView" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/wang/IdeaProjects/majian/src/game2/GamePlayer.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538072701989" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538272600555" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -384,8 +314,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="" />
       <recent name="exception" />
+      <recent name="" />
       <recent name="game2" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -476,18 +406,19 @@
       <workItem from="1537851875307" duration="11551000" />
       <workItem from="1537880149870" duration="20951000" />
       <workItem from="1537983259639" duration="18940000" />
-      <workItem from="1538061176602" duration="11182000" />
+      <workItem from="1538061176602" duration="11618000" />
+      <workItem from="1538120099035" duration="12566000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="62624000" />
+    <option name="totallyTimeSpent" value="75626000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-97" y="39" width="1440" height="825" extended-state="0" />
+    <frame x="-19" y="39" width="1440" height="825" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19384836" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19670959" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -495,7 +426,7 @@
       <window_info id="Capture Tool" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info active="true" anchor="bottom" id="Find" order="1" visible="true" weight="0.3287858" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3287858" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.36971352" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.31105047" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -585,13 +516,6 @@
     <entry file="file://$PROJECT_DIR$/src/game2/game/Utils.java" />
     <entry file="file://$PROJECT_DIR$/src/game2/game/MaJiangCard.java" />
     <entry file="file://$PROJECT_DIR$/src/game/BRPG.java" />
-    <entry file="file://$PROJECT_DIR$/src/exception/NotYetException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/enums/PlayRuleEnum.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -606,34 +530,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/exception/InsufficientPlayerException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exception/NotExistentException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exception/CanNotChiException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/exception/CanNotWinException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/Room.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
@@ -645,36 +541,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game/baseMajiang/J.java" />
-    <entry file="file://$PROJECT_DIR$/src/game/baseMajiang/BaseRulesImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-313">
-          <caret line="9" column="21" lean-forward="true" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/Rules.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/baseMajiang/BasePlayImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-313">
-          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -697,19 +563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/game/baseMajiang/BaseRoomImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1013">
-          <caret line="129" selection-start-line="129" selection-end-line="129" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addGamePlayer#0;class#BaseRoomImpl#0" />
-            <element signature="method#delGamePlayer#0;class#BaseRoomImpl#0" />
-            <element signature="method#jieshang#0;class#BaseRoomImpl#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/Object.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-60">
@@ -717,23 +570,6 @@
           <folding>
             <element signature="e#10065#10066#0" expanded="true" />
             <element signature="e#10148#10149#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/util/Utils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="22" column="58" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="58" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="641">
-          <caret line="48" column="5" lean-forward="true" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -749,6 +585,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/String.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="1160" selection-start-line="1160" selection-end-line="1160" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/config/Config.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -756,9 +599,22 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/baseMajiang/BaseRoomImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1560">
+          <caret line="129" selection-start-line="129" selection-end-line="129" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#addGamePlayer#0;class#BaseRoomImpl#0" />
+            <element signature="method#delGamePlayer#0;class#BaseRoomImpl#0" />
+            <element signature="method#jieshang#0;class#BaseRoomImpl#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/game/Play.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
+        <state relative-caret-position="2790">
           <caret line="218" column="49" selection-start-line="218" selection-start-column="32" selection-end-line="218" selection-end-column="55" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -767,76 +623,140 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/lang/String.java">
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="1160" selection-start-line="1160" selection-end-line="1160" />
+        <state relative-caret-position="566">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
+        <state relative-caret-position="-272">
           <caret line="20" column="57" selection-start-line="20" selection-start-column="3" selection-end-line="20" selection-end-column="57" />
-          <folding>
-            <element signature="e#1818#1819#0" expanded="true" />
-            <element signature="e#1893#1894#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/enums/MaJiangCardEnum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="50" column="5" lean-forward="true" selection-start-line="50" selection-start-column="5" selection-end-line="50" selection-end-column="5" />
+        <state relative-caret-position="341">
+          <caret line="51" lean-forward="true" selection-start-line="51" selection-end-line="51" />
           <folding>
             <element signature="e#1040#1041#0" expanded="true" />
-            <element signature="e#1098#1099#0" expanded="true" />
+            <element signature="e#1102#1103#0" expanded="true" />
             <element signature="e#1130#1131#0" expanded="true" />
-            <element signature="e#1151#1152#0" expanded="true" />
+            <element signature="e#1166#1167#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game/MaJiang.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="25" column="31" lean-forward="true" selection-start-line="25" selection-start-column="31" selection-end-line="25" selection-end-column="31" />
+        <state relative-caret-position="221">
+          <caret line="58" column="22" lean-forward="true" selection-start-line="58" selection-start-column="22" selection-end-line="58" selection-end-column="22" />
           <folding>
-            <element signature="e#1470#1471#0" expanded="true" />
-            <element signature="e#1508#1509#0" expanded="true" />
+            <element signature="e#1587#1588#0" expanded="true" />
+            <element signature="e#1613#1614#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/baseMajiang/BasePlayImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-425">
+          <caret line="16" column="3" lean-forward="true" selection-start-line="16" selection-start-column="3" selection-end-line="16" selection-end-column="3" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/baseMajiang/BaseRulesImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-229">
+          <caret line="11" column="13" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/game/Rules.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/game/GamePlayer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="109" column="8" selection-start-line="109" selection-start-column="8" selection-end-line="109" selection-end-column="8" />
+        <state relative-caret-position="-1195">
+          <caret line="40" column="5" lean-forward="true" selection-start-line="40" selection-start-column="5" selection-end-line="40" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1065#1066#0" expanded="true" />
             <element signature="e#1135#1136#0" expanded="true" />
-            <element signature="e#3947#3948#0" expanded="true" />
-            <element signature="e#3978#3979#0" expanded="true" />
-            <element signature="e#4033#4034#0" expanded="true" />
-            <element signature="e#4073#4074#0" expanded="true" />
-            <element signature="e#4125#4126#0" expanded="true" />
-            <element signature="e#4158#4159#0" expanded="true" />
-            <element signature="e#4225#4226#0" expanded="true" />
-            <element signature="e#4269#4270#0" expanded="true" />
-            <element signature="e#4324#4325#0" expanded="true" />
-            <element signature="e#4360#4361#0" expanded="true" />
-            <element signature="e#4800#4801#0" expanded="true" />
-            <element signature="e#4829#4830#0" expanded="true" />
-            <element signature="e#4870#4871#0" expanded="true" />
-            <element signature="e#4920#4921#0" expanded="true" />
-            <element signature="e#4953#4954#0" expanded="true" />
-            <element signature="e#4982#4983#0" expanded="true" />
-            <element signature="e#5023#5024#0" expanded="true" />
-            <element signature="e#5053#5054#0" expanded="true" />
-            <element signature="e#5094#5095#0" expanded="true" />
-            <element signature="e#5124#5125#0" expanded="true" />
+            <element signature="e#1321#1322#0" expanded="true" />
+            <element signature="e#1361#1362#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exception/CanNotChiException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="41" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exception/NotYetException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="44" lean-forward="true" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exception/NotExistentException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exception/InsufficientPlayerException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="18" column="38" selection-start-line="18" selection-start-column="38" selection-end-line="18" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exception/CanNotHuException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="44" selection-start-line="3" selection-start-column="44" selection-end-line="3" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/exception/IsPengException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="41" lean-forward="true" selection-start-line="4" selection-start-column="41" selection-end-line="4" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/util/Utils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="280" column="23" selection-start-line="280" selection-start-column="16" selection-end-line="280" selection-end-column="23" />
+          <folding>
+            <element signature="method#fiABC#0;class#Utils#0" />
+            <element signature="method#findHu#0;class#Utils#0" />
           </folding>
         </state>
       </provider>

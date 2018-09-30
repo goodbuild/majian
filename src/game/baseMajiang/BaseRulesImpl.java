@@ -1,7 +1,7 @@
 package game.baseMajiang;
 
 import exception.CanNotChiException;
-import exception.CanNotWinException;
+import exception.CanNotHuException;
 import exception.NotExistentException;
 import game.GamePlayer;
 import game.MaJiang;
@@ -38,16 +38,16 @@ public class BaseRulesImpl implements Rules {
     }
 
     @Override
-    public void hu(GamePlayer currGamePalyer, MaJiang maJiang) throws CanNotWinException {
+    public void hu(GamePlayer currGamePalyer, MaJiang maJiang) throws CanNotHuException {
         if (!currGamePalyer.getWinList().contains(maJiang)) {
-            throw new CanNotWinException();
+            throw new CanNotHuException();
         }
     }
 
     @Override
-    public void zimo(GamePlayer currGamePalyer, MaJiang maJiang) throws CanNotWinException {
+    public void zimo(GamePlayer currGamePalyer, MaJiang maJiang) throws CanNotHuException {
         if (!currGamePalyer.getWinList().contains(maJiang)) {
-            throw new CanNotWinException();
+            throw new CanNotHuException();
         }
     }
 
