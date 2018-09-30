@@ -1,11 +1,16 @@
 package config;
 
 public class Config {
-    public static final int PENG_NUM = 2;
-    public static final int GANG_NUM = 3;
+    public static final int NUM_PENG = 2;
+    public static final int NUM_GANG = 3;
+    public static final int NUM_ABC = 2;
     public static final int FIXED_PLAYER_NUM_4 = 4;
     public static final int FIXED_PLAYER_NUM_2 = 2;
     public static final int MAX_GAMG_NUM_8 = 8;
     public static final int MAX_GAMG_NUM_16 = 8;
 
+    public static final int RANGE_PENG = 0;
+    public static final int RANGE_GANG = 0;
+    public static final int RANGE_BC = -1;
+    public static final int RANGE_AC = -2;
 }

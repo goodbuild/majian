@@ -2,11 +2,10 @@ package game;
 
 import config.Config;
 import enums.RoomStatusEnum;
+import exception.CanNotChiException;
 import exception.NotExistentException;
 import exception.NotYetException;
 import enums.PlayRuleEnum;
-import game.GamePlayer;
-import game.MaJiang;
 
 import java.util.*;
 
@@ -185,7 +184,7 @@ public abstract class Play {
         _scoring(PlayRuleEnum.chi);
     }
 
-    public void in() {
+    public void in() throws CanNotChiException {
         room.in(maJiangs, true);
     }
 
@@ -222,13 +221,13 @@ public abstract class Play {
                 continue;
             }
             //检查 碰
-            if (number > Config.PENG_NUM) {
+            if (number > Config.NUM_PENG) {
                 playRuleEnum.add(PlayRuleEnum.peng);
                 room.setRoomStatus(RoomStatusEnum.Wait);
             }
 
             //检查 杠
-            if (number > Config.GANG_NUM) {
+            if (number > Config.NUM_GANG) {
                 playRuleEnum.add(PlayRuleEnum.gang);
                 room.setRoomStatus(RoomStatusEnum.Wait);
             }

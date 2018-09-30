@@ -1,6 +1,7 @@
 package game;
 
 import config.Config;
+import exception.CanNotChiException;
 import util.Utils;
 
 import java.util.*;
@@ -28,19 +29,19 @@ public class GamePlayer {
         this.userId = userId;
     }
 
-    public void in(MaJiang maJiang) {
+    public void in(MaJiang maJiang) throws CanNotChiException {
         // 可以优化算法
         maJiangs.add(maJiang);
         sortAndInit();
     }
 
-    public void out(MaJiang maJiang) {
+    public void out(MaJiang maJiang) throws CanNotChiException {
         // 可以优化算法
         maJiangs.remove(maJiang);
         sortAndInit();
     }
 
-    public void sortAndInit() {
+    public void sortAndInit() throws CanNotChiException {
         maJiangs.sort(new Comparator<MaJiang>() {
             public int compare(MaJiang n1, MaJiang n2) {
                 return n2.getSortId() - n1.getSortId();
@@ -48,12 +49,16 @@ public class GamePlayer {
         });
 
         // 还可以优化，3次循环变成一次，并且可以考虑这块挪到Play类下面会更合理和方便扩展
-        makePengAndGang();
-        makeWin();
-        makeChi();
+        try {
+            makePengAndGang();
+            makeWin();
+            makeChi();
+        } catch (Exception e) {
+
+        }
     }
 
-    private void makeChi() {
+    private void makeChi() throws CanNotChiException {
         chiList = Utils.fingChi(maJiangs);
     }
 
@@ -72,9 +77,9 @@ public class GamePlayer {
 
         for (MaJiang maJiang : maJiangMap.keySet()) {
             int num = maJiangMap.get(maJiang);
-            if (num == Config.PENG_NUM) {
+            if (num == Config.NUM_PENG) {
                 pengs.add(maJiang);
-            } else if (num == Config.GANG_NUM) {
+            } else if (num == Config.NUM_GANG) {
                 gangs.add(maJiang);
             } else {
                 ones.add(maJiang);

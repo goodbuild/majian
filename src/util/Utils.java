@@ -3,6 +3,7 @@ package util;
 import config.Config;
 import exception.CanNotChiException;
 import exception.CanNotHuException;
+import exception.IsGangException;
 import exception.IsPengException;
 import game.MaJiang;
 import enums.MaJiangCardEnum;
@@ -160,6 +161,54 @@ public class Utils {
         return chiList;
     }
 
+    /**
+     * 主要判断前两张牌是否可以吃，
+     * @param oneMaJiang
+     * @param twoMaJiang
+     * @param threeMaJiang
+     * @return
+     * @throws CanNotChiException
+     * @throws IsPengException
+     * @throws IsGangException
+     */
+    private static List<MaJiang> _getChi(MaJiang oneMaJiang, MaJiang twoMaJiang, MaJiang threeMaJiang) throws CanNotChiException, IsPengException, IsGangException {
+        List<MaJiang> chiList = new ArrayList<>();
+
+        MaJiangCardEnum maJiangCardEnum = oneMaJiang.getMaJiangCardEnum();
+        int oneNum = oneMaJiang.getSortId();
+        int twoNum = twoMaJiang.getSortId();
+        int threeNum = threeMaJiang == null ? 0 : threeMaJiang.getSortId();
+
+        int oneRange = oneNum - twoNum;
+        int twoRane = twoNum - threeNum;
+
+        switch (oneRange) {
+            case Config.RANGE_BC:
+                if (oneNum != 1) { // 头不取 1
+                    chiList.add(new MaJiang(maJiangCardEnum, oneNum - 1));
+                }
+                if (twoNum != 9) { // 尾不取9
+                    chiList.add(new MaJiang(maJiangCardEnum, twoNum + 1));
+                }
+                break;
+            case Config.RANGE_AC:
+                chiList.add(new MaJiang(maJiangCardEnum, oneNum + 1));
+                break;
+            case Config.RANGE_PENG:
+                if (twoRane == Config.RANGE_GANG) {
+                    throw new IsGangException();
+                } else {
+                    throw new IsPengException();
+                }
+            default:
+                throw new CanNotChiException();
+
+        }
+
+        return chiList;
+    }
+
+
     private static List<MaJiang> _getChi(MaJiang oneMaJiang, MaJiang twoMaJiang) throws CanNotChiException, IsPengException {
         List<MaJiang> chiList = new ArrayList<>();
         MaJiangCardEnum maJiangCardEnum = oneMaJiang.getMaJiangCardEnum();
@@ -220,9 +269,9 @@ public class Utils {
             MaJiang maJiang = list.get(i);
             Integer count = map.get(maJiang) != null ? map.get(maJiang) + 1 : 0;
 
-            if (count == Config.GANG_NUM) {
+            if (count == Config.NUM_GANG) {
                 pengList.add(maJiang);
-            } else if (count == Config.PENG_NUM) {
+            } else if (count == Config.NUM_PENG) {
                 pengList.remove(maJiang);
                 gangList.add(maJiang);
             }
@@ -279,6 +328,9 @@ public class Utils {
             }
 
 //            if (chiList.size() )
+            //应该是先判断  x * ABC + y* AAA + z*DD  规则
+            //加个万能牌？
+            //先写个把abc找出来的方法
 
             return chiList;
         } else {
@@ -286,5 +338,88 @@ public class Utils {
         }
 
         return (List<MaJiang>) huMap.keySet();
+    }
+
+    public static boolean checkABC(List<MaJiang> list) {
+        System.out.println(list);
+        List<MaJiang> checkList = new ArrayList<>();
+        int num = 0;
+        int pengNum = 0;
+        for (int i = 0; i < list.size()-1;) {
+            MaJiang one = list.get(i);
+            MaJiang two = list.get(i+1);
+
+            //[北风 (bf), 北风 (bf), 6万 (w6), 6万 (w6), 7万 (w7), 8万 (w8), 9万 (w9), 7筒 (t7), 7筒 (t7), 7筒 (t7), 2索 (s2), 3索 (s3), 4索 (s4)]
+            int range = one.getSortId() - two.getSortId();
+
+            switch (range) {
+                case Config.NUM_GANG:
+                case Config.RANGE_PENG:
+                    num = 0;
+                    // 先是碰，需要判断是否是杠
+                    i = i + 2;
+                    try{
+                        MaJiang three = list.get(i);
+                        if (two.getSortId() - three.getSortId() == Config.RANGE_GANG) {
+                            i = i + 3;
+                        } else {
+                            pengNum++;
+                            if (pengNum > 2) {
+                                return false;
+                            }
+                        }
+                    } catch (Exception e) {
+                    }
+                    break;
+                case Config.RANGE_BC:
+                    num++;
+                    if (num == Config.NUM_ABC) { //
+                        num = 0;
+                        i = i + 2;
+                    } else {
+                        i++;
+                    }
+                    break;
+                default:
+                    i++;
+
+                    MaJiang one1 = list.get(i);
+                    MaJiang two2 = list.get(i+1);
+                    MaJiang three3 = null;
+
+                    try{
+                        three3 = list.get(i+2);
+                    } catch (Exception e) {
+                    }
+
+                    try {
+                        checkList.addAll(_getChi(one1, two2, three3));
+                    } catch (CanNotChiException e) {
+                        checkList.add(one);
+                    } catch (IsPengException e) {
+                        pengNum++;
+                        checkList.add(one);
+                    } catch (IsGangException e) {
+
+                    }
+
+                    
+
+
+                    switch (num) {
+                        case 0: // 说明这两个牌不是一块的
+                            checkList.add(one);
+                            i++;
+                        break;
+                        case 1: // 说明这两张是一样的，但第三张不一样, 吃两头
+                            checkList.addAll(_getChi(one, two));
+                            i++;
+                    }
+            }
+        }
+
+
+        System.out.println(checkList);
+        return checkList.size() < 3;
     }
 }

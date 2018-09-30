@@ -1,5 +1,6 @@
 package game.baseMajiang;
 
+import exception.CanNotChiException;
 import exception.InsufficientPlayerException;
 import game.GamePlayer;
 import game.MaJiang;
@@ -115,7 +116,7 @@ public class BaseRoomImpl implements Room {
     }
 
     @Override
-    public void in(List<MaJiang> maJiangs, boolean isFromBegin) {
+    public void in(List<MaJiang> maJiangs, boolean isFromBegin) throws CanNotChiException {
         int index = isFromBegin ? 0 : maJiangs.size() - 1;
         GamePlayer gamePlayer = getCurrPlayer();
 
@@ -125,7 +126,7 @@ public class BaseRoomImpl implements Room {
         maJiangs.remove(index);
     }
 
-    private void _faPai(List<MaJiang> maJiangs, GamePlayer gamePlayer) {
+    private void _faPai(List<MaJiang> maJiangs, GamePlayer gamePlayer) throws CanNotChiException {
         gamePlayer.in(maJiangs.get(0));
         maJiangs.remove(0);
     }

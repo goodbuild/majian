@@ -1,6 +1,7 @@
 package game;
 
 import enums.RoomStatusEnum;
+import exception.CanNotChiException;
 import game.GamePlayer;
 import game.MaJiang;
 
@@ -27,7 +28,7 @@ public interface Room {
 
     public void faPai(List<MaJiang> maJiangs) throws Exception;
 
-    public void in(List<MaJiang> maJiangs, boolean isFromBegin);
+    public void in(List<MaJiang> maJiangs, boolean isFromBegin) throws CanNotChiException;
 
     public GamePlayer getCurrPlayer();
 
