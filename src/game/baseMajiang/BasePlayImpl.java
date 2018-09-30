@@ -35,13 +35,13 @@ public class BasePlayImpl extends Play {
     }
 
     @Override
-    public Map<PlayRuleEnum, Boolean> initRules() {
-        Map<PlayRuleEnum, Boolean> playRuleEnums = new HashMap<>();
-        playRuleEnums.put(PlayRuleEnum.peng, true);
-        playRuleEnums.put(PlayRuleEnum.mingGang, true);
-        playRuleEnums.put(PlayRuleEnum.zimo, true);
-//        playRuleEnums.put(PlayRuleEnum.hu, false);
-//        playRuleEnums.put(PlayRuleEnum.chi, false);
+    public List<PlayRuleEnum> initRules() {
+        List<PlayRuleEnum> playRuleEnums = new ArrayList<>();
+        playRuleEnums.add(PlayRuleEnum.peng);
+        playRuleEnums.add(PlayRuleEnum.mingGang);
+        playRuleEnums.add(PlayRuleEnum.zimo);
+//        playRuleEnums.put(PlayRuleEnum.hu);
+//        playRuleEnums.put(PlayRuleEnum.chi);
 
         return playRuleEnums;
     }

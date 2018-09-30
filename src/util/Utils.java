@@ -9,9 +9,7 @@ import game.MaJiang;
 import enums.MaJiangCardEnum;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * @Title: Utils
@@ -75,7 +73,7 @@ public class Utils {
 
         for (int i = 0; i < list.size() - 1; i++) {
             try {
-                chiList.addAll(_getChi(list.get(i), list.get(i + 1), null));
+                chiList.addAll(getChi(list.get(i), list.get(i + 1), null));
             } catch (Exception e) {
                 continue;
             }
@@ -98,7 +96,7 @@ public class Utils {
      * @throws IsPengException
      * @throws IsGangException
      */
-    private static List<MaJiang> _getChi(MaJiang oneMaJiang, MaJiang twoMaJiang, MaJiang threeMaJiang) throws CanNotChiException, IsPengException, IsGangException {
+    public static List<MaJiang> getChi(MaJiang oneMaJiang, MaJiang twoMaJiang, MaJiang threeMaJiang) throws CanNotChiException, IsPengException, IsGangException {
         List<MaJiang> chiList = new ArrayList<>();
 
         MaJiangCardEnum maJiangCardEnum = oneMaJiang.getMaJiangCardEnum();
@@ -159,7 +157,7 @@ public class Utils {
 
             try {
                 if (one.getSortId() - three.getSortId() != Config.RANGE_AC) {// 本身不是ABC,但这里有个bug 就是 23456 这种糊147 会变成 47
-                    huList.addAll(_getChi(one, two, three));
+                    huList.addAll(getChi(one, two, three));
                     checkout++;
                     i = i +2;
                 } else {

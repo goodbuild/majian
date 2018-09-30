@@ -3,6 +3,7 @@ package game;
 import config.Config;
 import enums.RoomStatusEnum;
 import exception.CanNotChiException;
+import exception.CanNotHuException;
 import exception.NotExistentException;
 import exception.NotYetException;
 import enums.PlayRuleEnum;
@@ -21,7 +22,7 @@ public abstract class Play {
     // 这个改为依赖关系更合理 BaseRoomImpl
     // Play 添加对应的方法
     private List<MaJiang> maJiangs = new ArrayList<>();
-    private Map<PlayRuleEnum, Boolean> playRuleEnums = new HashMap<>();
+    private List<PlayRuleEnum> playRuleEnums = new ArrayList<>();
     private Room room;
     private Rules rules;
 
@@ -51,7 +52,7 @@ public abstract class Play {
      * 定义可以玩的玩法
      * @return
      */
-    public abstract Map<PlayRuleEnum, Boolean> initRules();
+    public abstract List<PlayRuleEnum> initRules();
 
     /**
      * 定义玩法扣分
@@ -70,9 +71,7 @@ public abstract class Play {
      * @param type
      */
     private void _scoring(PlayRuleEnum type) {
-        Boolean isSupport = playRuleEnums.get(type);
-
-        if (!isSupport) {
+        if (!playRuleEnums.contains(type)) {
             return;
         }
 
@@ -127,7 +126,7 @@ public abstract class Play {
         room.setRoomStatus(RoomStatusEnum.Win);
 
         for (GamePlayer gamePlayer:
-             room.getPlayers()) {
+                room.getPlayers()) {
             gamePlayer.cleanMaJiangs();
         }
 
@@ -214,37 +213,55 @@ public abstract class Play {
     public Map<GamePlayer, List<PlayRuleEnum>> check(MaJiang maJiang) {
         Map<GamePlayer, List<PlayRuleEnum>> playerMap = new HashMap<>();
         for (GamePlayer gamePlayer: room.getPlayers()) {
-            List<PlayRuleEnum> playRuleEnum = new ArrayList<>();
-
-            Integer number = gamePlayer.getMaJiangMap().get(maJiang);
-
-            if (number == null) {
-                continue;
+            List<MaJiang> maJiangs = gamePlayer.getMaJiangs();
+            List<MaJiang> winList = new ArrayList<>();
+            try {
+                winList = rules.ting(maJiangs);
+            } catch (CanNotHuException e) {
+                e.printStackTrace();
             }
-            //检查 碰
-            if (number > Config.NUM_PENG) {
-                playRuleEnum.add(PlayRuleEnum.peng);
-                room.setRoomStatus(RoomStatusEnum.Wait);
-            }
+            gamePlayer.setWinList(winList);
 
-            //检查 杠
-            if (number > Config.NUM_GANG) {
-                playRuleEnum.add(PlayRuleEnum.gang);
-                room.setRoomStatus(RoomStatusEnum.Wait);
+            List<PlayRuleEnum> playRuleEnumList = playerMap.get(gamePlayer);
+
+            if(playRuleEnumList == null) {
+                playRuleEnumList = new ArrayList<>();
             }
 
-            int winIndex = gamePlayer.getWinList().indexOf(maJiang);
-            //检查 糊 / 自摸
-            if (winIndex > -1) {
-                boolean isMyself = gamePlayer.equals(room.getCurrPlayer());
-                if (isMyself) {
-                    playRuleEnum.add(PlayRuleEnum.zimo);
-                } else {
-                    playRuleEnum.add(PlayRuleEnum.hu);
+            for (PlayRuleEnum playRuleEnum: playRuleEnums) {
+                switch (playRuleEnum) {
+                    case zimo:
+                        if (gamePlayer.getWinList().contains(maJiang)) {
+                            playRuleEnumList.add(PlayRuleEnum.zimo);
+                        }
+                        break;
+                    case peng:
+                        if (gamePlayer.getPengList().contains(maJiang)) {
+                            playRuleEnumList.add(PlayRuleEnum.zimo);
+                        }
+                        break;
+                    case gang:
+                        if (gamePlayer.getGangList().contains(maJiang)) {
+                            playRuleEnumList.add(PlayRuleEnum.zimo);
+                        }
+                        break;
+                    case chi:
+                        if (gamePlayer.getChiList().contains(maJiang)) {
+                            playRuleEnumList.add(PlayRuleEnum.zimo);
+                        }
+                        break;
+                    case hu:
+                        if (gamePlayer.getWinList().contains(maJiang)) {
+                            playRuleEnumList.add(PlayRuleEnum.zimo);
+                        }
+                        break;
+                    default:
+                        break;
                 }
             }
 
-            //TODO 检查吃
+            playerMap.put(gamePlayer, playRuleEnumList);
+
         }
         return playerMap;
     }

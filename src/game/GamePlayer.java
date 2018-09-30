@@ -20,7 +20,9 @@ public class GamePlayer {
     private String userId;
 
     private List<MaJiang> maJiangs = new ArrayList<>();
-    private Map<MaJiang, Integer> maJiangMap = new HashMap<>();
+    private List<MaJiang> pengList = new ArrayList<>();
+    private List<MaJiang> gangList = new ArrayList<>();
+    private List<MaJiang> anGangList = new ArrayList<>();
     private List<MaJiang> winList = new ArrayList<>();
     private List<MaJiang> chiList = new ArrayList<>();
     private Map<MaJiang, Integer> maJiangOutMap = new HashMap<>();
@@ -30,67 +32,61 @@ public class GamePlayer {
         this.userId = userId;
     }
 
-    public void in(MaJiang maJiang) throws CanNotChiException {
+    public void in(MaJiang maJiang) {
         // 可以优化算法
         maJiangs.add(maJiang);
         sortAndInit();
     }
 
-    public void out(MaJiang maJiang) throws CanNotChiException {
+    public void out(MaJiang maJiang) {
         // 可以优化算法
         maJiangs.remove(maJiang);
         sortAndInit();
     }
 
-    public void sortAndInit() throws CanNotChiException {
+    public void sortAndInit() {
         maJiangs.sort(new Comparator<MaJiang>() {
             public int compare(MaJiang n1, MaJiang n2) {
                 return n1.getSortId() - n2.getSortId();
             }
         });
 
-        // 还可以优化，3次循环变成一次，并且可以考虑这块挪到Play类下面会更合理和方便扩展
-        try {
-            makePengAndGang();
-            makeWin();
-            makeChi();
-        } catch (Exception e) {
+        Map<MaJiang, Integer> map = new HashMap<>();
 
-        }
-    }
+        // mark peng & Gang & Chi
+        for(MaJiang maJiang : maJiangs) {
+            int num = map.get(maJiang) == null ? 1 : map.get(maJiang) + 1;
 
-    private void makeChi() throws CanNotChiException {
-        chiList = Utils.fingChi(maJiangs);
-    }
-
-    private void makeWin() throws CanNotHuException {
-        winList = Utils.findHu(maJiangs);
-
-    }
-
-    private boolean isTing() {
-
-        return false;
-    }
-
-    /**
-     * 标注哪些麻将可以碰杠
-     */
-    private void makePengAndGang() {
-        maJiangMap.clear();
-        for (MaJiang maJiang : maJiangs) {
-            Integer num = maJiangMap.get(maJiang);
-            if (num == null) {
-                num = 0;
+            switch (num) {
+                case Config.NUM_PENG:
+                    pengList.add(maJiang);
+                    break;
+                case Config.NUM_GANG:
+                    pengList.remove(maJiang);
+                    gangList.add(maJiang);
+                    break;
+                case Config.NUM_ANGANG:
+                    gangList.remove(maJiang);
+                    anGangList.add(maJiang);
+                    break;
             }
-            maJiangMap.put(maJiang, ++num);
+
+            map.put(maJiang, num);
+        }
+
+        try {
+            chiList = Utils.fingChi(maJiangs);
+        } catch (CanNotChiException e) {
+            chiList.clear();
         }
     }
 
     public void cleanMaJiangs() {
-        this.maJiangs = new ArrayList<>();
-        this.maJiangMap = new HashMap<>();
-        this.maJiangOutMap = new HashMap<>();
+        this.maJiangs.clear();
+        this.maJiangOutMap.clear();
+        this.anGangList.clear();
+        this.gangList.clear();
+        this.pengList.clear();
     }
 
     public List<MaJiang> getMaJiangs() {
@@ -99,14 +95,6 @@ public class GamePlayer {
 
     public void setMaJiangs(List<MaJiang> MaJiangs) {
         this.maJiangs = MaJiangs;
-    }
-
-    public Map<MaJiang, Integer> getMaJiangMap() {
-        return maJiangMap;
-    }
-
-    public void setMaJiangMap(Map<MaJiang, Integer> maJiangMap) {
-        this.maJiangMap = maJiangMap;
     }
 
     public Map<MaJiang, Integer> getMaJiangOutMap() {
@@ -149,5 +137,21 @@ public class GamePlayer {
 
     public List<MaJiang> getChiList() {
         return chiList;
+    }
+
+    public void setWinList(List<MaJiang> winList) {
+        this.winList = winList;
+    }
+
+    public List<MaJiang> getPengList() {
+        return pengList;
+    }
+
+    public List<MaJiang> getGangList() {
+        return gangList;
+    }
+
+    public List<MaJiang> getAnGangList() {
+        return anGangList;
     }
 }

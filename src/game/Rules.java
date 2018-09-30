@@ -4,6 +4,8 @@ import exception.CanNotChiException;
 import exception.CanNotHuException;
 import exception.NotExistentException;
 
+import java.util.List;
+
 /**
  * @Title: 规则接口
  * @ProjectName MaJiang
@@ -22,4 +24,6 @@ public interface Rules {
     public void zimo(GamePlayer currGamePalyer, MaJiang maJiang) throws CanNotHuException;
 
     public void chi(GamePlayer currGamePalyer, MaJiang maJiang) throws CanNotChiException;
+
+    public List<MaJiang> ting(List<MaJiang> maJiangs) throws CanNotHuException;
 }

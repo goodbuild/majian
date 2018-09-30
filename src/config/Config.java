@@ -3,6 +3,7 @@ package config;
 public class Config {
     public static final int NUM_PENG = 2;
     public static final int NUM_GANG = 3;
+    public static final int NUM_ANGANG = 4;
     public static final int NUM_ABC = 2;
     public static final int FIXED_PLAYER_NUM_4 = 4;
     public static final int FIXED_PLAYER_NUM_2 = 2;

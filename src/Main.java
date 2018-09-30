@@ -38,6 +38,9 @@ public class Main {
                 case "gang":
                     play.gang(null, maJiang);
                     break;
+                case "chi":
+                    play.chi(null, maJiang);
+                    break;
                 case "hu":
                     play.hu(curr, maJiang);
                     go = false;
