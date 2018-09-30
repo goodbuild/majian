@@ -60,81 +60,8 @@ public class Utils {
         return list;
     }
 
-    public static List<List<MaJiang>> findABC(List<MaJiang> list) {
-        List<List<MaJiang>> lists = new ArrayList<>();
-        List<MaJiang> noWords = new ArrayList<>();
-        for (int i = 1; i < list.size() - 1; i++) {
-            MaJiang prev = list.get(i-0);
-            MaJiang curr = list.get(i + 1);
-
-            switch (prev.getMaJiangCardEnum()) {
-                case SuoZi:
-                case WangZi:
-                case TongZi:
-                    int range = prev.getSortId() - curr.getSortId();
-
-                    if (range == 1) {
-                        noWords.add(prev);
-                    } else if (noWords.size() > 0 ){
-                        lists.add(noWords);
-                        noWords = new ArrayList();
-                    }
-                    break;
-                default:
-                    noWords = new ArrayList();
-            }
-        }
-
-        //TODO 删除日志
-        System.out.println(list);
-        for (List<MaJiang> l : lists) {
-            System.out.print(l.size() + "   : ");
-            System.out.println(l.toString());
-        }
-
-        return lists;
-    }
-
     /**
-     * 找出可以吃的牌 包括 ?BC? 和 A?B
-     * @param list
-     * @return
-     */
-    public static List<MaJiang> findABCHu(List<MaJiang> list) {
-        List<List<MaJiang>> lists = new ArrayList<>();
-        List<MaJiang> noWords = new ArrayList<>();
-        List<MaJiang> chiList = new ArrayList<>();
-
-        for (int i = 1; i < list.size() - 1; i++) {
-            MaJiang prev = list.get(i-0);
-            MaJiang curr = list.get(i + 1);
-
-            switch (prev.getMaJiangCardEnum()) {
-                case SuoZi:
-                case WangZi:
-                case TongZi:
-                    int range = prev.getSortId() - curr.getSortId();
-
-                    if (range == 1) {
-                        noWords.add(prev);
-                    } else if (range == 2) {
-                        chiList.add(new MaJiang(curr.getMaJiangCardEnum(), curr.getNum() + 1));
-                    } else if (noWords.size() > 0 ){
-                        lists.add(noWords);
-                        noWords = new ArrayList();
-                    }
-                    break;
-                default:
-                    noWords = new ArrayList();
-            }
-        }
-
-        return chiList;
-    }
-
-
-    /**
-     * OK 的
+     *
      * 找出可以吃的牌 包括 ?BC? 和 A?B
      * @param list
      * @return
@@ -217,7 +144,6 @@ public class Utils {
             return list;
         }
 
-        System.out.println(list);
         List<MaJiang> huList = new ArrayList<>();
         int pengNum = 0;
         int checkout = 0;

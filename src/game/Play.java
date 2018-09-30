@@ -186,6 +186,7 @@ public abstract class Play {
 
     public void in() throws CanNotChiException {
         room.in(maJiangs, true);
+        System.out.println(room.getCurrPlayer());
     }
 
     public void out(GamePlayer currGamePalyer, MaJiang maJiang) throws Exception {

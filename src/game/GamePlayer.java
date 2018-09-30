@@ -2,6 +2,7 @@ package game;
 
 import config.Config;
 import exception.CanNotChiException;
+import exception.CanNotHuException;
 import util.Utils;
 
 import java.util.*;
@@ -44,7 +45,7 @@ public class GamePlayer {
     public void sortAndInit() throws CanNotChiException {
         maJiangs.sort(new Comparator<MaJiang>() {
             public int compare(MaJiang n1, MaJiang n2) {
-                return n2.getSortId() - n1.getSortId();
+                return n1.getSortId() - n2.getSortId();
             }
         });
 
@@ -62,78 +63,9 @@ public class GamePlayer {
         chiList = Utils.fingChi(maJiangs);
     }
 
-    private void makeWin() {
-        winList.clear();
-        if (maJiangs.size() < 2) {
-            return;
-        }
+    private void makeWin() throws CanNotHuException {
+        winList = Utils.findHu(maJiangs);
 
-        // int num = maJiangs.size() / 3;
-
-        // 先排除掉对或者3个的
-        List<MaJiang> pengs = new ArrayList<>();
-        List<MaJiang> gangs = new ArrayList<>();
-        List<MaJiang> ones = new ArrayList<>();
-
-        for (MaJiang maJiang : maJiangMap.keySet()) {
-            int num = maJiangMap.get(maJiang);
-            if (num == Config.NUM_PENG) {
-                pengs.add(maJiang);
-            } else if (num == Config.NUM_GANG) {
-                gangs.add(maJiang);
-            } else {
-                ones.add(maJiang);
-            }
-        }
-
-        // 不能胡
-        if (pengs.size() > 2) {
-            return;
-        }
-
-        // 去掉字
-        List<MaJiang> noWordList = new ArrayList<>();
-
-        for (MaJiang maJiang : maJiangs) {
-            switch (maJiang.getMaJiangCardEnum()) {
-                case WangZi:
-                case TongZi:
-                case SuoZi:
-                    noWordList.add(maJiang);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        // 去掉单一的 ABC
-
-        for (int i = 1; i < noWordList.size(); i = i + 2) {
-            MaJiang maJiang = maJiangs.get(i);
-        }
-
-        //去掉单纯碰
-        MaJiang danDiao = null;  // 单调牌
-        for (MaJiang maJiang : pengs) {
-            switch (maJiang.getMaJiangCardEnum()) {
-                case WangZi:
-                case TongZi:
-                case SuoZi:
-                    try {
-                        int index = noWordList.indexOf(maJiang) + 1; // 碰是两个
-                    } catch (Exception e) {
-                        if (danDiao != null) { // 两个单调是不合理的
-                            return;
-                        }
-                    }
-            }
-
-        }
-        //一个的排序，如果有两个
-        // x*AAA + y*ABC + z * DD
-        for (int i = 1; i < noWordList.size(); i++) {
-            MaJiang maJiang = maJiangs.get(i);
-        }
     }
 
     private boolean isTing() {
@@ -183,6 +115,7 @@ public class GamePlayer {
 
     @Override
     public String toString() {
+        // TODO 删除日志
         System.out.println(userId);
         System.out.println("     " + maJiangs.toString());
         return "";
