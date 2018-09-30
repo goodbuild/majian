@@ -2,14 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a54aa9a2-e1ea-4ae2-b18c-87a2adb20f35" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/exception/IsGangException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/majian/util/Utils.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config/Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/config/Config.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exception/IsPengException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/IsPengException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/GamePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GamePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Play.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Play.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/baseMajiang/BaseRoomImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/baseMajiang/BaseRoomImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Utils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -33,13 +27,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="72" />
-          <entry key="java" value="13751" />
+          <entry key="java" value="14153" />
           <entry key="md" value="39" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="13751" />
+          <entry key="JAVA" value="14153" />
           <entry key="Markdown" value="39" />
           <entry key="PLAIN_TEXT" value="72" />
         </counts>
@@ -81,8 +75,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main2.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="356">
-              <caret line="53" column="40" lean-forward="true" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
+            <state relative-caret-position="250">
+              <caret line="66" column="39" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -137,11 +131,11 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="504">
-              <caret line="403" column="21" lean-forward="true" selection-start-line="403" selection-start-column="21" selection-end-line="403" selection-end-column="21" />
+            <state relative-caret-position="43">
+              <caret line="209" lean-forward="true" selection-start-line="209" selection-end-line="209" />
               <folding>
-                <element signature="method#fiABC#0;class#Utils#0" />
-                <element signature="method#findHu#0;class#Utils#0" />
+                <element signature="method#findABC#0;class#Utils#0" />
+                <element signature="method#findABCHu#0;class#Utils#0" />
               </folding>
             </state>
           </provider>
@@ -287,10 +281,10 @@
         <option value="$PROJECT_DIR$/src/game/baseMajiang/BaseRoomImpl.java" />
         <option value="$PROJECT_DIR$/src/game/Play.java" />
         <option value="$PROJECT_DIR$/src/game/GamePlayer.java" />
-        <option value="$PROJECT_DIR$/src/Main2.java" />
         <option value="$PROJECT_DIR$/src/exception/IsGangException.java" />
         <option value="$PROJECT_DIR$/src/exception/IsPengException.java" />
         <option value="$PROJECT_DIR$/src/config/Config.java" />
+        <option value="$PROJECT_DIR$/src/Main2.java" />
         <option value="$PROJECT_DIR$/src/util/Utils.java" />
       </list>
     </option>
@@ -362,7 +356,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/wang/IdeaProjects/majian/src/game2/GamePlayer.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538292062135" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538293470236" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -467,18 +461,18 @@
       <workItem from="1537880149870" duration="20951000" />
       <workItem from="1537983259639" duration="18940000" />
       <workItem from="1538061176602" duration="11618000" />
-      <workItem from="1538120099035" duration="19489000" />
+      <workItem from="1538120099035" duration="20893000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82549000" />
+    <option name="totallyTimeSpent" value="83953000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-19" y="39" width="1440" height="825" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19670959" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19670959" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -487,7 +481,7 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3287858" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.36971352" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.36971352" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.31105047" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -513,18 +507,6 @@
   </component>
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/util/Utils.java</url>
-          <line>359</line>
-          <properties />
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="breakpointCondition">
@@ -814,13 +796,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main2.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="53" column="40" lean-forward="true" selection-start-line="53" selection-start-column="40" selection-end-line="53" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/config/Config.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="195">
@@ -828,13 +803,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="66" column="39" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/util/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="504">
-          <caret line="403" column="21" lean-forward="true" selection-start-line="403" selection-start-column="21" selection-end-line="403" selection-end-column="21" />
+        <state relative-caret-position="43">
+          <caret line="209" lean-forward="true" selection-start-line="209" selection-end-line="209" />
           <folding>
-            <element signature="method#fiABC#0;class#Utils#0" />
-            <element signature="method#findHu#0;class#Utils#0" />
+            <element signature="method#findABC#0;class#Utils#0" />
+            <element signature="method#findABCHu#0;class#Utils#0" />
           </folding>
         </state>
       </provider>

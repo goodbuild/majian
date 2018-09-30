@@ -148,7 +148,7 @@ public class Utils {
 
         for (int i = 0; i < list.size() - 1; i++) {
             try {
-                chiList.addAll(_getChi(list.get(i), list.get(i + 1)));
+                chiList.addAll(_getChi(list.get(i), list.get(i + 1), null));
             } catch (Exception e) {
                 continue;
             }
@@ -208,218 +208,51 @@ public class Utils {
         return chiList;
     }
 
-
-    private static List<MaJiang> _getChi(MaJiang oneMaJiang, MaJiang twoMaJiang) throws CanNotChiException, IsPengException {
-        List<MaJiang> chiList = new ArrayList<>();
-        MaJiangCardEnum maJiangCardEnum = oneMaJiang.getMaJiangCardEnum();
-        int oneNum = oneMaJiang.getNum();
-        int twoNum = twoMaJiang.getNum();
-        int range = oneNum - twoNum;
-
-        if (range > -2) {
-            throw new CanNotChiException();
-        }
-
-        if (range == 0) {
-            throw new IsPengException();
-        }
-
-        if (range == -1) { // ?BC?
-            if (oneNum != 1) { // 头不取 1
-                chiList.add(new MaJiang(maJiangCardEnum, oneNum - 1));
-            }
-            if (twoNum != 9) { // 尾不取9
-                chiList.add(new MaJiang(maJiangCardEnum, twoNum + 1));
-            }
-        } else if (range == -2) { // A?B
-            chiList.add(new MaJiang(maJiangCardEnum, oneNum + 1));
-        }
-
-        return chiList;
-    }
-
     public static List<MaJiang> findHu(List<MaJiang> list) throws CanNotHuException {
-        Map<MaJiang, Boolean> huMap = new HashMap<>();
-        List<MaJiang> huList = new ArrayList<>();
-
         // 单张
         int num = list.size();
         if (num == 1) {
             return list;
         }
 
-        // 2 张
-        if (num == 2) {
-            try {
-                huList.addAll(_getChi(list.get(0), list.get(1)));
-            } catch (CanNotChiException e) {
-                throw new CanNotHuException();
-            } catch (IsPengException e) {
-                huList.add(list.get(0));
-            }
-            return huList;
-        }
-
-        // 2 张以上
-        Map<MaJiang, Integer> map = new HashMap<>();
-        List<MaJiang> pengList = new ArrayList<>();
-        List<MaJiang> gangList = new ArrayList<>();
-
-        for (int i = 0; i < list.size(); i++) {
-            MaJiang maJiang = list.get(i);
-            Integer count = map.get(maJiang) != null ? map.get(maJiang) + 1 : 0;
-
-            if (count == Config.NUM_GANG) {
-                pengList.add(maJiang);
-            } else if (count == Config.NUM_PENG) {
-                pengList.remove(maJiang);
-                gangList.add(maJiang);
-            }
-
-            map.put(maJiang, count);
-        }
-
-        if (pengList.size() > 3) {
-            throw new CanNotHuException();
-        } else if (pengList.size() == 2) {
-            for (MaJiang maJiang : pengList) {
-                list.remove(maJiang);
-                list.remove(maJiang);
-            }
-
-            if (list.size() == 0) {// 剩下两对
-                return pengList;
-            }
-
-
-            try {
-                List<MaJiang> chiList = fingChi(list);
-
-                for (MaJiang chi : chiList) {
-                    list.remove(chi);
-                }
-            } catch (CanNotChiException e) {
-            }
-
-            if (list.size() != 0) {
-                throw new CanNotHuException();
-            }
-
-            return pengList;
-        } else if (pengList.size() == 1 && gangList.size() > 1) {
-            //有可能听这两对，和其他
-            MaJiang peng = pengList.get(0);
-            list.remove(peng);
-            list.remove(peng);
-
-            for (MaJiang gang : gangList) {
-                list.remove(peng);
-                list.remove(peng);
-                list.remove(peng);
-            }
-
-            List<MaJiang> chiList = new ArrayList<>();
-            try {
-                chiList = fingChi(list);
-                for (MaJiang chi : list) {
-                    chiList.remove(chi);
-                }
-            } catch (CanNotChiException e) {
-            }
-
-//            if (chiList.size() )
-            //应该是先判断  x * ABC + y* AAA + z*DD  规则
-            //加个万能牌？
-            //先写个把abc找出来的方法
-
-            return chiList;
-        } else {
-
-        }
-
-        return (List<MaJiang>) huMap.keySet();
-    }
-
-    public static boolean checkABC(List<MaJiang> list) {
         System.out.println(list);
-        List<MaJiang> checkList = new ArrayList<>();
-        int num = 0;
+        List<MaJiang> huList = new ArrayList<>();
         int pengNum = 0;
+        int checkout = 0;
         for (int i = 0; i < list.size()-1;) {
             MaJiang one = list.get(i);
             MaJiang two = list.get(i+1);
+            MaJiang three = null;
 
-            //[北风 (bf), 北风 (bf), 6万 (w6), 6万 (w6), 7万 (w7), 8万 (w8), 9万 (w9), 7筒 (t7), 7筒 (t7), 7筒 (t7), 2索 (s2), 3索 (s3), 4索 (s4)]
-            int range = one.getSortId() - two.getSortId();
+            try{
+                three = list.get(i+2);
+            } catch (Exception e) {
+            }
 
-            switch (range) {
-                case Config.NUM_GANG:
-                case Config.RANGE_PENG:
-                    num = 0;
-                    // 先是碰，需要判断是否是杠
-                    i = i + 2;
-                    try{
-                        MaJiang three = list.get(i);
-                        if (two.getSortId() - three.getSortId() == Config.RANGE_GANG) {
-                            i = i + 3;
-                        } else {
-                            pengNum++;
-                            if (pengNum > 2) {
-                                return false;
-                            }
-                        }
-                    } catch (Exception e) {
-                    }
-                    break;
-                case Config.RANGE_BC:
-                    num++;
-                    if (num == Config.NUM_ABC) { //
-                        num = 0;
-                        i = i + 2;
-                    } else {
-                        i++;
-                    }
-                    break;
-                default:
+            try {
+                if (one.getSortId() - three.getSortId() != Config.RANGE_AC) {// 本身不是ABC,但这里有个bug 就是 23456 这种糊147 会变成 47
+                    huList.addAll(_getChi(one, two, three));
+                    checkout++;
                     i++;
+                } else {
+                    i = i + 3;
+                }
+            } catch (CanNotChiException e) {
+                huList.add(one);
+                i++;
+            } catch (IsPengException e) {
+                pengNum++;
+                huList.add(one);
+                i = i +2;
+            } catch (IsGangException e) {
+                i = i + 3;
+            }
 
-                    MaJiang one1 = list.get(i);
-                    MaJiang two2 = list.get(i+1);
-                    MaJiang three3 = null;
-
-                    try{
-                        three3 = list.get(i+2);
-                    } catch (Exception e) {
-                    }
-
-                    try {
-                        checkList.addAll(_getChi(one1, two2, three3));
-                    } catch (CanNotChiException e) {
-                        checkList.add(one);
-                    } catch (IsPengException e) {
-                        pengNum++;
-                        checkList.add(one);
-                    } catch (IsGangException e) {
-
-                    }
-
-                    
-
-
-                    switch (num) {
-                        case 0: // 说明这两个牌不是一块的
-                            checkList.add(one);
-                            i++;
-                        break;
-                        case 1: // 说明这两张是一样的，但第三张不一样, 吃两头
-                            checkList.addAll(_getChi(one, two));
-                            i++;
-                    }
+            if (checkout > 3 || pengNum > 2) {
+                throw new CanNotHuException();
             }
         }
 
-
-        System.out.println(checkList);
-        return checkList.size() < 3;
+        return huList;
     }
 }

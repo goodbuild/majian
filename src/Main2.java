@@ -64,7 +64,7 @@ public class Main2 {
             }
         });
 
-        System.out.println(Utils.checkABC(maJiangs));
+        System.out.println(Utils.findHu(maJiangs));
     }
 
 
