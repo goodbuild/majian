@@ -2,14 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a54aa9a2-e1ea-4ae2-b18c-87a2adb20f35" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/exception/IsPengException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/exception/CanNotWinException.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/exception/CanNotHuException.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/GamePlayer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/GamePlayer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/MaJiang.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/MaJiang.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/Rules.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/Rules.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/baseMajiang/BasePlayImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/baseMajiang/BasePlayImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/game/baseMajiang/BaseRulesImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/game/baseMajiang/BaseRulesImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/util/Utils.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/util/Utils.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -107,8 +99,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/util/Utils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="510">
-              <caret line="280" column="23" selection-start-line="280" selection-start-column="16" selection-end-line="280" selection-end-column="23" />
+            <state relative-caret-position="525">
+              <caret line="281" lean-forward="true" selection-start-line="281" selection-end-line="281" />
               <folding>
                 <element signature="method#fiABC#0;class#Utils#0" />
                 <element signature="method#findHu#0;class#Utils#0" />
@@ -302,7 +294,7 @@
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///Users/wang/IdeaProjects/majian/src/game2/GamePlayer.java" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538272600555" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1538275674296" />
     <property name="create.test.in.the.same.root" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -407,12 +399,12 @@
       <workItem from="1537880149870" duration="20951000" />
       <workItem from="1537983259639" duration="18940000" />
       <workItem from="1538061176602" duration="11618000" />
-      <workItem from="1538120099035" duration="12566000" />
+      <workItem from="1538120099035" duration="12777000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="75626000" />
+    <option name="totallyTimeSpent" value="75837000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-19" y="39" width="1440" height="825" extended-state="0" />
@@ -752,8 +744,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/util/Utils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="280" column="23" selection-start-line="280" selection-start-column="16" selection-end-line="280" selection-end-column="23" />
+        <state relative-caret-position="525">
+          <caret line="281" lean-forward="true" selection-start-line="281" selection-end-line="281" />
           <folding>
             <element signature="method#fiABC#0;class#Utils#0" />
             <element signature="method#findHu#0;class#Utils#0" />

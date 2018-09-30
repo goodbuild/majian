@@ -278,7 +278,7 @@ public class Utils {
             } catch (CanNotChiException e) {
             }
 
-            if (chiList.size() )
+//            if (chiList.size() )
 
             return chiList;
         } else {
